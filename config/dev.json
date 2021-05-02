@@ -1,0 +1,9 @@
+{
+    "dev": {
+      "name": "Fass Converter - Dev Mode",
+      "port": 3000,
+      "mode": "development",
+      "protocol": "http",
+      "serverUrl": "localhost"
+    }
+  }
