@@ -10,8 +10,8 @@ Express API application that consumes NodeRed admin api to fetch NodeRed flows a
 
 ### Requiered env variables:
 * **NODE_HOST** Hostname of NodeRED
-* **NODE_AUTH** Authentication schema that is used. Leave empty if nodeRed server has no authedication. 
-  * Supported authedication schemas: credentials
+* **NODE_AUTH** Authentication schema that is used. Leave empty if nodeRed server has no authentication. 
+  * Supported authentication schemas: credentials
 * **NODE_USER** username for credentials schema
 * **NODE_PWD** password for credentials schema
 * **OW_API_HOST** Openwhisk host name
