@@ -8,7 +8,6 @@ var debug = require('debug')('fass-converter:server');
 require('dotenv').config();
 
 var routes = require('./routes');
-
 var app = express();
 
 // view engine setup
@@ -49,6 +48,14 @@ server.listen(port);
 console.log('Listening to port: ' + port)
 server.on('error', onError);
 server.on('listening', onListening);
+
+console.log("[INFO] NodeRed Auth: ", process.env.NODE_AUTH);
+if(process.env.NODE_AUTH == "credentials") {
+	if(!process.env.NODE_USER && !process.env.NODE_PWD) {
+		console.log("[ERROR] Misiing NODE_USER or NODE_PWD from env variables");
+		process.exit(1);
+	}
+}
 
 /**
  * Normalize a port into a number, string, or false.
@@ -104,25 +111,3 @@ function onListening() {
 		: 'port ' + addr.port;
 	debug('Listening on ' + bind);
 }
-
-// var results = null; 
-// results = (async function (msg, __send__, __done__) {
-// 	var __msgid__ = msg._msgid; 
-// 	var node = { 
-// 		id: __node__.id, 
-// 		name: __node__.name, 
-// 		log: __node__.log, error: 
-// 		__node__.error, 
-// 		warn: __node__.warn, 
-// 		debug: __node__.debug, 
-// 		trace: __node__.trace, 
-// 		on: __node__.on, 
-// 		status: __node__.status, 
-// 		send: function (msgs, cloneMsg) {
-// 			__node__.send(__send__, __msgid__, msgs, cloneMsg); 
-// 		}, 
-// 		done: __done__ };
-		
-// 	msg.payload = "Hello World!"
-// 	return msg;
-// })(msg, __send__, __done__);
