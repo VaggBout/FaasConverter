@@ -14,7 +14,7 @@ var owOptions = {
 var ow = openwhisk(owOptions)
 module.exports = {
     convertFlowsToFaas: async (flow, sequence) => {
-        var flowId = flow.id;
+        var flowId = flow.label;
         var nodes = flow.nodes;
         return new Promise(async (resolve, reject) => {
             if (nodes.length == 0) return {err: "Empty array"};
